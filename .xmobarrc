@@ -2,7 +2,7 @@ Config { font = "xft:sans"
        ,  bgColor = "black"
        , fgColor = "grey"
        , position = Top
-       , commands = [ Run Weather "KRDU" ["-t"," <tempF>F <skyCondition>","-L","55","-H","85","--normal","green","--high","red","--low","lightblue"] 36000
+       , commands = [ Run Weather "KRDU" ["-t"," <tempF>F <skyCondition>","-L","55","-H","85","--normal","green","--high","red","--low","lightblue"] 9000
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 20
                     , Run Memory ["-t","Mem: <usedratio>%"] 60
                     , Run TopMem ["-t","<both1>,<both2>,<both3>", "-L","10", "-H", "25", "--low", "green", "--normal", "yellow", "--high", "red" ] 30
