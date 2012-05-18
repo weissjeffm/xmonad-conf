@@ -14,6 +14,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Spiral
 import XMonad.Util.Run(spawnPipe)
 import System.IO
+import XMonad.Hooks.EwmhDesktops
 
 myLayoutHook =  Full ||| Mirror (spiral (6/7)) ||| mytall
  where
@@ -30,9 +31,10 @@ main = do
               ,terminal = "gnome-terminal --hide-menubar" 
               ,layoutHook = avoidStruts myLayoutHook
               ,manageHook = manageDocks <+> manageHook defaultConfig
+              , handleEventHook = fullscreenEventHook
               ,logHook = dynamicLogWithPP xmobarPP
                          { ppOutput = hPutStrLn xmproc
-                          ,ppTitle = xmobarColor "green" "" . shorten 50
+                          ,ppTitle = xmobarColor "white" "" . shorten 50
                          }
              }    
              `additionalKeys`

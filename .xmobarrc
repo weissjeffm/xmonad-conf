@@ -1,5 +1,5 @@
 Config { font = "xft:sans"
-       ,  bgColor = "black"
+       , bgColor = "black"
        , fgColor = "grey"
        , position = Top
        , commands = [ Run Weather "KRDU" ["-t"," <tempF>F <skyCondition>","-L","55","-H","85","--normal","green","--high","red","--low","lightblue"] 9000
@@ -8,9 +8,10 @@ Config { font = "xft:sans"
                     , Run TopMem ["-t","<both1>,<both2>,<both3>", "-L","10", "-H", "25", "--low", "green", "--normal", "yellow", "--high", "red" ] 30
                     , Run Network "em1" ["-t", "Net ↓<rx>k ↑<tx>k"] 30
                     , Run StdinReader
+                    , Run Date "%a %b %_d %Y %l:%M %p" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% %topmem% | %em1% | %KRDU%"
+       , template = "%StdinReader% }<fc=#ee9a00>%date%</fc>{%cpu% | %memory% %topmem% | %em1% | %KRDU%"
       }
        
