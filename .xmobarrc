@@ -6,11 +6,11 @@ Config { font = "xft:sans"
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 20
                     , Run Memory ["-t","Mem: <usedratio>%"] 60
                     , Run TopMem ["-t","<both1>,<both2>,<both3>", "-L","10", "-H", "25", "--low", "green", "--normal", "yellow", "--high", "red" ] 30
-                    , Run Network "em1" ["-t", "Net ↓<rx>k ↑<tx>k"] 30
+                    , Run Network "wlan0" ["-t", "Net ↓<rx>k ↑<tx>k"] 30
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% %topmem% | %em1% | %KRDU%"
+       , template = "%StdinReader% }{ %cpu% | %memory% %topmem% | %wlan0% | %KRDU%"
       }
        
