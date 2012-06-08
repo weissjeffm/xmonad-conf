@@ -6,12 +6,12 @@ Config { font = "xft:sans"
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 20
                     , Run Memory ["-t","Mem: <usedratio>%"] 60
                     , Run TopMem ["-t","<both1>,<both2>,<both3>", "-L","10", "-H", "25", "--low", "green", "--normal", "yellow", "--high", "red" ] 30
-                    , Run Network "wlan0" ["-t", "Net ↓<rx>k ↑<tx>k"] 30
+                    , Run Network "wlan0" ["-t", "↓<rx>k ↑<tx>k"] 30
                     , Run StdinReader
                     , Run Date "%a %b %_d %Y %l:%M %p" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }<fc=#ee9a00>%date%</fc>{%cpu% | %memory% %topmem% | %wlan0% | %KRDU%"
+       , template = "%StdinReader% }<fc=#ee9a00>%date%</fc>  %KRDU%{%cpu% | %memory% %topmem% | %wlan0%"
       }
        
