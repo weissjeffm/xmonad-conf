@@ -38,7 +38,7 @@ main = do
                          }
              }    
              `additionalKeys`
-             [ ((mod4Mask, xK_u), spawn "exe=`dmenu_run | dmenu` && eval \"exec $exe\"")
+             [ ((mod4Mask, xK_u), spawn "dmenu_run")
              ] 
 
 
