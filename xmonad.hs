@@ -31,12 +31,13 @@ main = do
              { modMask = mod4Mask
               ,terminal = "gnome-terminal --hide-menubar" 
               ,layoutHook = avoidStruts myLayoutHook
+              ,startupHook = setWMName "LG3D"
               ,manageHook = manageDocks <+> manageHook defaultConfig
-              , handleEventHook = fullscreenEventHook
+              ,handleEventHook = fullscreenEventHook
+              ,focusedBorderColor = "#00FF00"
               ,logHook = dynamicLogWithPP xmobarPP
                          { ppOutput = hPutStrLn xmproc
                           ,ppTitle = xmobarColor "white" "" . shorten 50
-              ,startupHook = setWMName "LG3D"
                          }
              }    
              `additionalKeys`
