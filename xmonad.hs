@@ -15,6 +15,7 @@ import XMonad.Layout.Spiral
 import XMonad.Util.Run(spawnPipe)
 import System.IO
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName
 
 myLayoutHook =  Full ||| Mirror (spiral (6/7)) ||| mytall
  where
@@ -35,6 +36,7 @@ main = do
               ,logHook = dynamicLogWithPP xmobarPP
                          { ppOutput = hPutStrLn xmproc
                           ,ppTitle = xmobarColor "white" "" . shorten 50
+              ,startupHook = setWMName "LG3D"
                          }
              }    
              `additionalKeys`
