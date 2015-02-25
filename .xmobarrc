@@ -1,17 +1,19 @@
-Config { font = "xft:sans"
+Config { font = "xft:sans-10"
        , bgColor = "black"
        , fgColor = "grey"
-       , position = Top
-       , commands = [ Run Weather "KRDU" ["-t"," <tempF>F <skyCondition>","-L","55","-H","85","--normal","green","--high","red","--low","lightblue"] 9000
+       , position = TopP 72 0
+       , commands = [ Run Weather "KMIA" ["-t"," <tempF>F <skyCondition>","-L","55","-H","85","--normal","green","--high","red","--low","lightblue"] 9000
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 20
                     , Run Memory ["-t","Mem: <usedratio>%"] 60
-                    , Run TopMem ["-t","<both1>,<both2>,<both3>", "-L","10", "-H", "25", "--low", "green", "--normal", "yellow", "--high", "red" ] 30
-                    , Run Network "wlan0" ["-t", "↓<rx>k ↑<tx>k"] 30
+                    --, Run TopMem ["-t","<both1>,<both2>", "-L","10", "-H", "25", "--low", "green", "--normal", "yellow", "--high", "red" ] 30
+                    , Run Network "wlp4s0" ["-t", "↓<rx>k ↑<tx>k"] 30
                     , Run StdinReader
-                    , Run Date "%a %b %_d %Y %l:%M %p" "date" 10
+                    , Run Mail [("inbox: ", "~/Mail/Personal-Remote/INBOX/"), ("Monetas: ", "~/Mail/Monetas/INBOX/") ] "mail"
+                    , Run Date "%a %b %_d %l:%M%p" "date" 10
+                    , Run BatteryP ["BAT0"] ["-t", "<acstatus><left>%", "-L", "10", "-H", "80", "-p", "3", "--", "-O", "<fc=yellow>⚡</fc>", "-i", "<fc=green>⚡</fc>", "-o", "🔋", "-L", "-15", "-H", "-5", "-l", "red", "-m", "blue", "-h", "green"] 30
+                     
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }<fc=#ee9a00>%date%</fc>  %KRDU%{%cpu% | %memory% %topmem% | %wlan0%"
+       , template = "}%StdinReader% <fc=#ee9a00>%date%</fc> %KMIA% | %cpu% | %memory% | %battery% | %wlp4s0% | %mail%{"
       }
-       
