@@ -8,7 +8,7 @@ Config { font = "xft:sans-10"
                     --, Run TopMem ["-t","<both1>,<both2>", "-L","10", "-H", "25", "--low", "green", "--normal", "yellow", "--high", "red" ] 30
                     , Run Network "wlp4s0" ["-t", "↓<rx>k ↑<tx>k"] 30
                     , Run StdinReader
-                    , Run Mail [("inbox: ", "~/Mail/Personal-Remote/INBOX/"), ("Monetas: ", "~/Mail/Monetas/INBOX/") ] "mail"
+                    , Run Mail [("i: ", "~/Mail/Personal-Remote/INBOX/"), ("m: ", "~/Mail/Monetas/INBOX/"), ("c: ", "~/Mail/Cognitect/INBOX/"), ("l: ", "~/Mail/LookingGlass/INBOX/") ] "mail"
                     , Run Date "%a %b %_d %l:%M%p" "date" 10
                     , Run BatteryP ["BAT0"] ["-t", "<acstatus><left>%", "-L", "10", "-H", "80", "-p", "3", "--", "-O", "<fc=yellow>⚡</fc>", "-i", "<fc=green>⚡</fc>", "-o", "🔋", "-L", "-15", "-H", "-5", "-l", "red", "-m", "blue", "-h", "green"] 30
                      
